@@ -1,6 +1,6 @@
 import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { IconLogoLg } from '../assets/img'
+import { IconLogoLg } from '../../assets/img'
 import { Link, useNavigate } from 'react-router-dom';
 
 const SigninPage = () => {
@@ -43,9 +43,11 @@ const SigninPage = () => {
         color: '#333',
       }}
     >   
-    
+
+      {/* --- Logo --- */}
       <IconLogoLg />
       
+      {/* --- Title --- */}
       <Typography
         sx={{
           fontFamily: 'Roboto',
@@ -58,6 +60,7 @@ const SigninPage = () => {
         Sign In
       </Typography>
 
+      {/* --- Deskripsi --- */}
       <Typography
         sx={{
           fontFamily: 'Roboto',
@@ -69,7 +72,27 @@ const SigninPage = () => {
       >
         👉 Log in with your account to order laundry 👈
       </Typography>
+      
+      {/* --- Status Message --- */}
+      {isLoading ? (
+        <CircularProgress sx={{ mt: 2 }} />
+      ) : (
+        <Typography 
+            variant="body2" 
+            sx={{
+              mt: 2, 
+              color: 
+                isSuccess ? 
+                  'success.main' 
+                : 
+                  'error.main' 
+            }}
+          >            
+          {loginMessage}
+        </Typography>            
+      )}
 
+      {/* --- Form Login --- */}
       <Box
         sx={{
           marginY: '1rem',
@@ -88,6 +111,7 @@ const SigninPage = () => {
               mt: 1
             }}
           >
+            {/* --- Username --- */}
             <TextField
               variant="outlined"
               margin="normal"
@@ -99,6 +123,7 @@ const SigninPage = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
+            {/* --- Password --- */}
             <TextField
               variant="outlined"
               margin="normal"
@@ -111,6 +136,7 @@ const SigninPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {/* --- Submit --- */}
             <Button
               type="submit"
               fullWidth
@@ -123,47 +149,30 @@ const SigninPage = () => {
             >
               Login
             </Button>
-            {isLoading ? (
-              <CircularProgress sx={{ mt: 2 }} />
-                ) : (
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'end',
-                    }}
-                    >
-                      <Typography variant="body2" color="#333">
-                        Don't have an account ?
-                      </Typography>
-                      <Box
-                        component={Link}
-                        to={'../signup'}
-                        relative='path'
-                        sx={{
-                          textDecoration: 'none',
-                          marginLeft: '3px',
-                          cursor: 'pointer'
-                        }}
-                      >Sign Up</Box>
-                  </Box>
-                )}
-            
+
+            {/* --- Sign Up --- */}
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'end',
+              }}
+            >
+              <Typography variant="body2" color="#333">
+                Don't have an account ?
+              </Typography>
+              <Box
+                component={Link}
+                  to={'../signup'}
+                  relative='path'
+                  sx={{
+                    textDecoration: 'none',
+                    marginLeft: '3px',
+                    cursor: 'pointer'
+                  }}
+              >Sign Up</Box>
+            </Box>
           </Box>
-          
-         
-        <Typography 
-            variant="body2" 
-            sx={{ 
-              color: 
-                isSuccess ? 
-                  'success.main' 
-                : 
-                  'error.main' 
-            }}
-          >            
-            {loginMessage}
-        </Typography>
       </Box>
     </Box>
   )

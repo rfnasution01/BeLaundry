@@ -1,6 +1,6 @@
 import { Box, Button, CircularProgress, MenuItem, Select, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { IconLogoLg } from '../assets/img'
+import { IconLogoLg } from '../../assets/img'
 import { Link } from 'react-router-dom';
 
 const SignupPage = () => {
@@ -27,7 +27,7 @@ const SignupPage = () => {
     localStorage.setItem('email', email);
     localStorage.setItem('role', role);
     localStorage.setItem('password', password);
-    setSignupMessage('Signup successful!');
+    setSignupMessage('Signup successful, please login!');
     setIsSuccess(true);
     setIsLoading(false); 
   };
@@ -45,9 +45,10 @@ const SignupPage = () => {
         color: '#333',
       }}
     >   
-    
+      {/* --- Icon Logo --- */}
       <IconLogoLg />
       
+      {/* --- Title --- */}
       <Typography
         sx={{
           fontFamily: 'Roboto',
@@ -59,7 +60,8 @@ const SignupPage = () => {
       >
         Sign Up
       </Typography>
-
+      
+      {/* --- Deskripsi --- */}
       <Typography
         sx={{
           fontFamily: 'Roboto',
@@ -71,7 +73,27 @@ const SignupPage = () => {
       >
         👉 Register now and get exclusive offers! 👈
       </Typography>
+      
+      {/* --- Status Message --- */}
+      {isLoading ? (
+        <CircularProgress sx={{ mt: 2 }} />
+      ) : (
+        <Typography 
+            variant="body2" 
+            sx={{ 
+              mt: 2,
+              color: 
+                isSuccess ? 
+                  'success.main' 
+                : 
+                  'error.main' 
+            }}
+          >            
+            {signupMessage}
+        </Typography> 
+      )}
 
+      {/* --- Form Sign Up --- */}
       <Box
         sx={{
           marginY: '1rem',
@@ -90,7 +112,8 @@ const SignupPage = () => {
               mt: 1
             }}
           >
-             <TextField
+            {/* --- Username --- */}
+            <TextField
               variant="outlined"
               margin="normal"
               required
@@ -100,6 +123,7 @@ const SignupPage = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
+            {/* --- Email --- */}
             <TextField
               variant="outlined"
               margin="normal"
@@ -111,6 +135,7 @@ const SignupPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            {/* --- Password --- */}
             <TextField
               variant="outlined"
               margin="normal"
@@ -122,6 +147,7 @@ const SignupPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {/* --- Role --- */}
             <Select
               labelId="role-label"
               id="role"
@@ -132,6 +158,7 @@ const SignupPage = () => {
               <MenuItem value="user">User</MenuItem>
               <MenuItem value="admin">Admin</MenuItem>
             </Select>
+            {/* --- Submit --- */}
             <Button
               type="submit"
               fullWidth
@@ -144,49 +171,30 @@ const SignupPage = () => {
             >
               Sign Up
             </Button>
-
-            {isLoading ? (
-              <CircularProgress sx={{ mt: 2 }} />
-            ) : (
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'end',
-                }}
-                >
-                  <Typography variant="body2" color="#333">
-                    Already have an account ?
-                  </Typography>
-                  <Box
-                    component={Link}
-                    to={'../signin'}
-                    relative='path'
-                    sx={{
-                      textDecoration: 'none',
-                      marginLeft: '3px',
-                      cursor: 'pointer'
-                    }}
-                  >Sign In</Box>
-              </Box>
-            )}
+            
+            {/* --- Login --- */}
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'end',
+              }}
+              >
+                <Typography variant="body2" color="#333">
+                  Already have an account ?
+                </Typography>
+                <Box
+                  component={Link}
+                  to={'../signin'}
+                  relative='path'
+                  sx={{
+                    textDecoration: 'none',
+                    marginLeft: '3px',
+                    cursor: 'pointer'                    }}
+                >Sign In</Box>
             </Box>
-          
-         
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              color: 
-                isSuccess ? 
-                  'success.main' 
-                : 
-                  'error.main' 
-            }}
-          >            
-            {signupMessage}
-        </Typography>
+          </Box>
       </Box>
-          
     </Box>
   )
 }

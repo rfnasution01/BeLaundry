@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { LoginPage, NotFound, SigninPage, SignupPage } from "../pages";
+import { LoginPage, SigninPage, SignupPage } from "../pages/login";
+import { NotFound } from "../pages";
 
 const LoginRouting = () => {
     return (

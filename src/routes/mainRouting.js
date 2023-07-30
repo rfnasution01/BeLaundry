@@ -1,28 +1,29 @@
 import { Route, Routes } from "react-router-dom";
 import { Homepage, NotFound, Products, Sales, Settings } from "../pages";
+import ProtectedRoute from "./protectedRoute";
 
 const MainRouting = () => {
     return (
       <Routes>
-        <Route index element={<Homepage />} />
+        <Route index element={<ProtectedRoute page={<Homepage />} />} />
         <Route
           path="/home"
-          element={<Homepage />}
+          element={<ProtectedRoute page={<Homepage />} />}
         />
         <Route
           path="/products"
-          element={<Products />}
+          element={<ProtectedRoute page={<Products />} />}
         />
         <Route
           path="/sales"
-          element={<Sales />}
+          element={<ProtectedRoute page={<Sales />} />}
         />
         <Route
           path="/settings"
-          element={<Settings />}
+          element={<ProtectedRoute page={<Settings />} />}
         />
   
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<ProtectedRoute page={<NotFound />} />} />
       </Routes>
     );
   };

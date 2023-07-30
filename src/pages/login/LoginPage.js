@@ -1,8 +1,8 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import { IconLogoLg } from '../assets/img'
+import { IconLogoLg } from '../../assets/img'
 import { Link } from 'react-router-dom'
-import listButtonLogin from './component/listButtonLogin'
+import listButtonLogin from '../component/listButtonLogin'
 
 const LoginPage = () => {
   return (
