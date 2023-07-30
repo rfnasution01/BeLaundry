@@ -9,6 +9,7 @@ import { ReactComponent as IconShow } from './iconShow.svg';
 import { ReactComponent as IconHide } from './iconHide.svg';
 import { ReactComponent as IconLogoMd } from './iconLogoMd.svg';
 import { ReactComponent as IconLogoLg } from './iconLogoLg.svg';
+import { ReactComponent as IconLogout } from './logout.svg';
 
 import ImgLoginBackground from './login.png';
 
@@ -24,5 +25,6 @@ export {
     IconBack,
     IconLogoMd,
     IconLogoLg,
+    IconLogout,
     ImgLoginBackground,
 }

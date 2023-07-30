@@ -3,7 +3,7 @@ import {
     IconProduct, 
     IconSales,
     IconSetting
-} from "../assets/img";
+} from "../../assets/img";
 
     const listMenuSidebar = [
       {

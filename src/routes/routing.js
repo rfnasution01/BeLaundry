@@ -1,8 +1,8 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import MainLayout from '../layouts/mainLayout';
 import { NotFound } from '../pages';
 import LoginLayout from '../layouts/loginLayout/loginLayout';
+import MainLayout from '../layouts';
 
 const router = createBrowserRouter([
   {
