@@ -24,14 +24,13 @@ const LoginLayout = () => {
             sm={2} 
             xs={2}  
             sx={{
-              bgcolor: '#fff',
+              bgcolor: '#E7F5FD',
               minHeight: '100vh',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'start',
               justifyContent: 'space-between',
               padding: '2rem',
-              border: '1px solid red'
             }}
           >
            
@@ -39,46 +38,23 @@ const LoginLayout = () => {
            <HeadLayout />
 
             {/* --- Main Content --- */}
-           <LoginRouting/>
+            <Box
+              component='section'
+              sx={{
+                  display: 'flex',
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: '100%',
+              }}
+          >
+            <LoginRouting/>
+          </Box>
+           
 
            {/* --- Footer Login Layout --- */}
            <FooterLayout />
           </Grid>
         </Grid>
-        
-
-        {/* <Grid container columns={2}>
-          <Grid item xl={1} lg={1} md={2} sm={2} xs={2} bgcolor={'#fff'} sx={{
-            height: {
-              xl: '100vh',
-              lg: isMainRoute ? 'auto': '100vh',
-              md: '100vh',
-              sm: '100vh',
-              xs: '100vh',
-            }
-          }}>
-            <Box 
-              display={'flex'} p={'20px 30px'} 
-              flexDirection={'column'}
-              justifyContent={'space-between'}
-              sx={{
-                height: {
-                  xl: '100vh',
-                  lg: isMainRoute ? 'auto': '93vh',
-                  md: '100vh',
-                  sm: '100vh',
-                  xs: '100vh',
-                }
-              }}
-            >
-              Test
-             
-              <Box my={'20px'}>
-              </Box>
-              
-            </Box>
-          </Grid>
-        </Grid> */}
       </Box>
     );
   };

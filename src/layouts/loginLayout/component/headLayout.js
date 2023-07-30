@@ -12,7 +12,8 @@ const HeadLayout = () => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        marginX: '2rem',
       }}
     >
       {
@@ -40,6 +41,7 @@ const HeadLayout = () => {
             fontWeight: 700,
             fontSize: '30px',
             lineHeight: '130%',
+            color: '#007BFF',
           }}
         >BeLaundry</Typography>
         :
