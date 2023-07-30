@@ -28,23 +28,26 @@ const LoginPage = () => {
                 lineHeight: '150%',
             }}
         >
-            Welcome to BeLaundry
+             Welcome to BeLaundry 
+        
         </Typography>
+        
         <Typography
             sx={{
                 fontFamily: 'Roboto',
                 fontStyle: 'normal',
                 fontWeight: 400,
                 fontSize: '16px',
-                lineHeight: '130%'
+                lineHeight: '130%',
+                color: '#808080',
+                marginY: '8px'
             }}
         >
-            Innovative, practical, and efficient. A modern solution for ordering laundry online. Easy access anytime, anywhere.
+            Get the best experience with BeLaundry. Just log in with your account and enjoy hassle-free washing, drying, ironing and folding services.
         </Typography>
-
         <Box
             sx={{
-                marginY: '1rem',
+                marginY: '2rem',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '10px',
@@ -95,6 +98,18 @@ const LoginPage = () => {
                 ))
             }
         </Box>
+        <Typography
+            sx={{
+                fontFamily: 'Roboto',
+                fontStyle: 'normal',
+                fontWeight: 400,
+                fontSize: '16px',
+                lineHeight: '130%',
+                color: '#808080',
+            }}
+        >
+            BeLaundry - Online ordering that makes your life easier. 💧👚🧦
+        </Typography>
     </Box>
   )
 }

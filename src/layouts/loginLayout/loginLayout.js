@@ -45,6 +45,7 @@ const LoginLayout = () => {
                   alignItems: 'center', 
                   justifyContent: 'center',
                   width: '100%',
+                  marginY: '3rem',
               }}
           >
             <LoginRouting/>
