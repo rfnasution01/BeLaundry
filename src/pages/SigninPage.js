@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { IconLogoLg } from '../assets/img'
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,10 +7,13 @@ const SigninPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const storedUsername = localStorage.getItem('username');
     const storedPassword = localStorage.getItem('password');
 
@@ -18,8 +21,12 @@ const SigninPage = () => {
       const token = btoa(username);
       localStorage.setItem('token', token);
       setLoginMessage('Login successful!');
+      setIsSuccess(true);
+      setIsLoading(false);
       navigate('/');
     } else {
+      setIsSuccess(false);
+      setIsLoading(false);
       setLoginMessage('Username or password is incorrect!');
     }
   };
@@ -48,7 +55,7 @@ const SigninPage = () => {
           lineHeight: '150%',
         }}
       >
-        Login Form
+        Sign In
       </Typography>
 
       <Typography
@@ -116,31 +123,45 @@ const SigninPage = () => {
             >
               Login
             </Button>
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'end',
-              }}
-              >
-                <Typography variant="body2" color="#333">
-                  Don't have an account ?
-                </Typography>
-                <Box
-                  component={Link}
-                  to={'../signup'}
-                  relative='path'
-                  sx={{
-                    textDecoration: 'none',
-                    marginLeft: '3px',
-                    cursor: 'pointer'
-                  }}
-                >Sign Up</Box>
-              </Box>
-            </Box>
+            {isLoading ? (
+              <CircularProgress sx={{ mt: 2 }} />
+                ) : (
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'end',
+                    }}
+                    >
+                      <Typography variant="body2" color="#333">
+                        Don't have an account ?
+                      </Typography>
+                      <Box
+                        component={Link}
+                        to={'../signup'}
+                        relative='path'
+                        sx={{
+                          textDecoration: 'none',
+                          marginLeft: '3px',
+                          cursor: 'pointer'
+                        }}
+                      >Sign Up</Box>
+                  </Box>
+                )}
+            
+          </Box>
           
          
-          <Typography variant="body2" color="error">
+        <Typography 
+            variant="body2" 
+            sx={{ 
+              color: 
+                isSuccess ? 
+                  'success.main' 
+                : 
+                  'error.main' 
+            }}
+          >            
             {loginMessage}
         </Typography>
       </Box>
