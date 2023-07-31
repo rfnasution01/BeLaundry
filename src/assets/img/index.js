@@ -13,6 +13,7 @@ import { ReactComponent as IconLogout } from './logout.svg';
 import { ReactComponent as IconLogoMobile } from './logoMobile.svg';
 
 import ImgLoginBackground from './login.png';
+import ImgTemplate from './image.png';
 
 export {
     IconHome,
@@ -29,4 +30,5 @@ export {
     IconLogoLg,
     IconLogout,
     ImgLoginBackground,
+    ImgTemplate,
 }

@@ -11,7 +11,7 @@ const MainLayout = () => {
   const isMobile = useSelector(getIsMobile);
   const role = localStorage.getItem('role');
   
-  const mobileMediaQuery = useMediaQuery('(max-width: 767px)');
+  const mobileMediaQuery = useMediaQuery('(max-width: 960px)');
   
   useEffect(() => {
     dispatch(setIsMobile(mobileMediaQuery))    

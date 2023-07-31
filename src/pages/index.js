@@ -1,6 +1,6 @@
 import Homepage from "./homepage";
 import NotFound from "./NotFound";
-import Products from "./Products";
+import Products from "./products";
 import Sales from "./Sales";
 import Settings from "./Settings";
 
