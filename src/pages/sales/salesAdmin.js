@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getIsMobile } from '../../features/isMobileSlice';
 import Chart from '../../component/chart';
 
-const HomepageAdmin = () => {
+const SalesAdmin = () => {
   const [produkTime, setProdukTime] = useState('daily');
   const isMobile = useSelector(getIsMobile);
 
@@ -13,7 +13,7 @@ const HomepageAdmin = () => {
     labels: labels,
     datasets: [
       {
-        label: 'Product Sold',
+        label: 'Product Sale',
         data: [5, 6, 4, 7, 8, 8, 7, 9],
         backgroundColor: [
           '#B2C5D4',
@@ -286,4 +286,4 @@ const listTopSelling = [
   },
 ];
 
-export default HomepageAdmin;
+export default SalesAdmin;

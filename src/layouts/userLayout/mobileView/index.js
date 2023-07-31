@@ -14,8 +14,7 @@ return (
         component='article' 
         sx={{
           bgcolor: '#E7F5FD', 
-          minHeight: '80vh',
-          padding: '4rem 1.6rem' 
+          minHeight: '100vh',
         }}
       >
         <MainRouting />
