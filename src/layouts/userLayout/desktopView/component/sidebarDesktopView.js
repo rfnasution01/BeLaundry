@@ -1,16 +1,17 @@
-import { Box, Drawer, Typography } from '@mui/material';
+import { Box, Divider, Drawer, Typography } from '@mui/material';
 import React from 'react';
-import listMenuSidebar from '../listMenuSidebar';
-import { IconLogo } from '../../assets/img';
-import { Link, useLocation } from 'react-router-dom';
+import { IconLogo, IconLogout } from '../../../../assets/img';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setNavigation } from '../../features/navigationSlice';
+import { setNavigation } from '../../../../features/navigationSlice';
+import listMenuUser from '../../../component/listMenuUser';
 
 
-const SidebarDesktopView = ({drawerWidth}) => {
+const AdminSidebarDesktopView = ({drawerWidth}) => {
   const { pathname } = useLocation();
   const currentPath = pathname === '/' ? 'root' : pathname.split('/')[1];
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const color = {
     active: '#3B97CB',
@@ -19,6 +20,11 @@ const SidebarDesktopView = ({drawerWidth}) => {
 
   const handleClick = (nav) => {
     dispatch(setNavigation(nav))
+  }
+
+  const logoutHandle = () => {
+    localStorage.removeItem('token');
+    navigate('/users');
   }
   
   return (
@@ -85,7 +91,7 @@ const SidebarDesktopView = ({drawerWidth}) => {
         >
           Menu
         </Typography>
-        {listMenuSidebar.map((item, idx) => (
+        {listMenuUser.map((item, idx) => (
           <Box
             key={idx}
             component={Link} 
@@ -146,8 +152,51 @@ const SidebarDesktopView = ({drawerWidth}) => {
           </Box>
         ))}
       </Box>
+
+      <Divider sx={{ margin: '1.5vw', bgcolor: '#fff' }} />
+
+      {/* --- Logout --- */}
+      <Box
+        onClick={logoutHandle}
+        sx={{
+          marginX: '1.5vw',
+          display: 'flex',
+          alignItems: 'center',
+          cursor: 'pointer',
+          color: '#fff',
+          ':hover': {
+            backgroundColor: '#fff',
+            color: color.active,
+            '& svg path':{
+              fill: color.active,
+            },
+          },
+        }}
+      >
+        {React.cloneElement(<IconLogout />, {
+          style: {
+            margin: '12px 1vw 12px 1.5vw',
+            padding: 0,
+            cursor: 'pointer',
+            fill: '#fff'
+          },
+        })}
+
+        <Typography
+          sx={{
+            fontFamily: 'Roboto',
+            fontStyle: 'normal',
+            fontWeight: 400,
+            fontSize: '20px',
+            lineHeight: '130%',
+            marginY: '12px',
+          }}
+        >
+          Logout
+        </Typography>
+      </Box>
     </Drawer>
   );
 };
 
-export default SidebarDesktopView;
+export default AdminSidebarDesktopView;

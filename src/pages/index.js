@@ -1,4 +1,4 @@
-import Homepage from "./Homepage";
+import Homepage from "./homepage";
 import NotFound from "./NotFound";
 import Products from "./Products";
 import Sales from "./Sales";

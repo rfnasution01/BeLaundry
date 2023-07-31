@@ -1,11 +1,12 @@
 import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { getNavigation } from '../../features/navigationSlice'
-import { IconUser } from '../../assets/img'
+import { getNavigation } from '../../../../features/navigationSlice'
+import { IconUser } from '../../../../assets/img'
 
-const TopbarDesktopView = ({drawerWidth}) => {
+const AdminTopbarDesktopView = ({drawerWidth}) => {
   const navigation = useSelector(getNavigation);
+  const name = localStorage.getItem("username");
   
   return (
     <AppBar
@@ -63,7 +64,7 @@ const TopbarDesktopView = ({drawerWidth}) => {
               color: '#0099EE'
             }}
           >
-            John Doe
+            {name}
           </Typography>
         </Box>
       </Toolbar>
@@ -71,4 +72,4 @@ const TopbarDesktopView = ({drawerWidth}) => {
   )
 }
 
-export default TopbarDesktopView
+export default AdminTopbarDesktopView

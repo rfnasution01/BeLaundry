@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setNavigation } from "../../../../features/navigationSlice";
 import React from "react";
-import listMenuAdmin from "../../../component/listMenuAdmin";
+import listMenuUser from "../../../component/listMenuUser";
 
 const TopbarModal = ({ open, onClose }) => {
 const { pathname } = useLocation();
@@ -61,7 +61,7 @@ const { pathname } = useLocation();
             Menu
           </Typography>
           <Box>
-            {listMenuAdmin.map((item, idx) => (
+            {listMenuUser.map((item, idx) => (
                 <Box
                     key={idx}
                     component={Link} 

@@ -5,7 +5,7 @@ import {
     IconSetting
 } from "../../assets/img";
 
-    const listMenuSidebar = [
+    const listMenuAdmin = [
       {
         title: 'Home',
         path: '/home',
@@ -28,6 +28,6 @@ import {
       },
     ];
     
-    export default listMenuSidebar
+    export default listMenuAdmin
     ;
     

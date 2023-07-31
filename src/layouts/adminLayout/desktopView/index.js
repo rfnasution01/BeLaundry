@@ -17,7 +17,7 @@ const AdminDesktopView = () => {
           component='article' 
           sx={{
             bgcolor: '#E7F5FD', 
-            minHeight: '100vh',
+            minHeight: '80vh',
             padding: '4rem 1.6rem' 
           }}
         >

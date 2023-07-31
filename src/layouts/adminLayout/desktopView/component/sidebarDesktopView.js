@@ -1,10 +1,10 @@
 import { Box, Divider, Drawer, Typography } from '@mui/material';
 import React from 'react';
-import listMenuSidebar from '../../../component/listMenuSidebar';
 import { IconLogo, IconLogout } from '../../../../assets/img';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setNavigation } from '../../../../features/navigationSlice';
+import listMenuAdmin from '../../../component/listMenuAdmin';
 
 
 const AdminSidebarDesktopView = ({drawerWidth}) => {
@@ -91,7 +91,7 @@ const AdminSidebarDesktopView = ({drawerWidth}) => {
         >
           Menu
         </Typography>
-        {listMenuSidebar.map((item, idx) => (
+        {listMenuAdmin.map((item, idx) => (
           <Box
             key={idx}
             component={Link} 
