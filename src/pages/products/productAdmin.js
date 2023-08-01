@@ -12,6 +12,7 @@ const ProductAdmin = () => {
     const [stock, setStock] = useState(0);
     const [category, setCategory] = useState(listCategory[0])
     const [price, setPrice] = useState(0);
+    const isLoading = false;
     // const [isLoading, setIsLoading] = useState(false);
     // const [image, setImage] = useState('');
 
