@@ -388,6 +388,7 @@ const ProductAdmin = () => {
             >
                 <img
                     src={ImgTemplate}
+                    alt="img template"
                 />
                 <Typography
                     sx={{
