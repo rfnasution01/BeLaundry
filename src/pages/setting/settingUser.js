@@ -1,11 +1,14 @@
 import { Button, Grid, InputLabel, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
+import { getIsMobile } from '../../features/isMobileSlice';
 
 const SettingUser = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const isMobile = useSelector(getIsMobile);
     
     useEffect(() => {
         const storedUsername = localStorage.getItem('username');
@@ -50,7 +53,8 @@ const SettingUser = () => {
         >
             <Box
                 sx={{
-                    mt: '2rem',
+                    mt: isMobile ? '4rem': '2rem',
+                    mx: isMobile ? '1.6rem': 0,
                 }}
             >
                 {/* --- Title --- */}
